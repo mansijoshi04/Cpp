@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 2.8.9)
 
-project (hello)
+project (week2)
 
-add_executable(hello week2.cpp)
+add_executable(week2 week2.cpp)
