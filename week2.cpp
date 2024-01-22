@@ -9,9 +9,18 @@ namespace CST8219 {
         int numDoors;
 
         public:
-        Vehicle(int w, int d) : numWheels(w), numDoors(d) {}
-        Vehicle(int w) : Vehicle(w, 4) {}
-        Vehicle() : Vehicle(4) {}
+            Vehicle(int w, int d) : numWheels(w), numDoors(d) {
+                cout << "In constructor with 2 parameters" << endl;
+            }   
+            Vehicle(int w) : Vehicle(w, 4) {
+                cout << "In constructor with 1 parameter, wheels = " << w << endl;
+            }
+            Vehicle() : Vehicle(4) {
+                cout << "In constructor with 0 parameters" << endl;
+            }
+            ~Vehicle() {
+                cout << "In destructor" << endl;
+            }
     };
 }
 
