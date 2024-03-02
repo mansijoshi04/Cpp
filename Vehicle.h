@@ -1,38 +1,20 @@
+//Name: Mansi Joshi
+//Student Number: 041091664
+//Lab: Lab 6_303
+//Professor: Mohammad Patory
+
 #pragma once
 #include <iostream>
 
 class Vehicle {
 public:
-    ~Vehicle();
-    Vehicle(); // Empty constructor
-    Vehicle(const Vehicle& copy); // Copy constructor by reference
-    Vehicle(Vehicle* copy); // Copy constructor by pointer
+    virtual ~Vehicle();
+    virtual float calculateRange() = 0;
+    virtual float percentEnergyRemaining() = 0;
+    virtual void drive(float km) = 0;
 
-    void printVehicle() const; // Function to print vehicle details
+protected:
+    float engineEfficiency;
 
-    // Getters and setters for number of wheels and doors
-    int getWheels() const;
-    void setWheels(int wheels);
-    int getDoors() const;
-    void setDoors(int doors);
-
-    // Assignment operator
-    Vehicle& operator=(const Vehicle& other);
-
-    // Comparison operators
-    bool operator==(const Vehicle& other) const;
-    bool operator!=(const Vehicle& other) const;
-
-    // Increment and decrement operators
-    Vehicle& operator++();    // Prefix increment
-    Vehicle operator++(int);  // Postfix increment
-    Vehicle& operator--();    // Prefix decrement
-    Vehicle operator--(int);  // Postfix decrement
-
-    // Output operator
-    friend std::ostream& operator<<(std::ostream& os, const Vehicle& v);
-
-private:
-    int numWheels;
-    int numDoors;
+    Vehicle(float efficiency);
 };
