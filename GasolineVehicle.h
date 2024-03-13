@@ -1,20 +1,40 @@
 //Name: Mansi Joshi
 //Student Number: 041091664
-//Lab: Lab 6_303
+//Lab: Lab 7_303
 //Professor: Mohammad Patory
 
-#pragma once
+#ifndef GASOLINE_VEHICLE_H
+#define GASOLINE_VEHICLE_H
+
 #include "Vehicle.h"
 
-class GasolineVehicle : public Vehicle {
-public:
-    GasolineVehicle(float maxGasoline, float efficiency);
-    ~GasolineVehicle() override;
-    float calculateRange() override;
-    float percentEnergyRemaining() override;
-    void drive(float km) override;
-
+template<typename T>
+class GasolineVehicle : public Vehicle<T> {
 private:
-    float currentGasoline;
-    float maximumGasoline;
+    T currentGasoline;
+    T maxGasoline;
+    T engineEfficiency;
+
+public:
+    GasolineVehicle(T currentGasoline, T maxGasoline, T engineEfficiency);
+
+    T calculateRange();
+    T percentEnergyRemaining();
 };
+
+template<typename T>
+GasolineVehicle<T>::GasolineVehicle(T currentGasoline, T maxGasoline, T engineEfficiency)
+    : currentGasoline(currentGasoline), maxGasoline(maxGasoline), engineEfficiency(engineEfficiency) {}
+
+template<typename T>
+T GasolineVehicle<T>::calculateRange() {
+    // Assuming engineEfficiency is in L/100km
+    return (maxGasoline / engineEfficiency) * 100; // Calculate range in km
+}
+
+template<typename T>
+T GasolineVehicle<T>::percentEnergyRemaining() {
+    return (currentGasoline / maxGasoline) * 100;
+}
+
+#endif
