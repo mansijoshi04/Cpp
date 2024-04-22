@@ -1,0 +1,3 @@
+C:/Users/mansi/Visual Studio/Lab8/out/build/x64-debug/CMakeFiles/MyCPPLibrary.dir
+C:/Users/mansi/Visual Studio/Lab8/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/mansi/Visual Studio/Lab8/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
